@@ -1,0 +1,22 @@
+<div class="bg-white flex flex-col items-start gap-6 ml-[20%] my-[25%]">
+  <h1 class="text-[22px] font-semibold">Welcome</h1>
+  <div>
+    <p class="inputHeadings">Enter Email ID</p>
+    <input [(ngModel)]="email" placeholder="Enter your email" />
+  </div>
+
+  <div>
+    <p class="inputHeadings">Enter Password</p>
+    <input
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Password"
+      [ngClass]="{'red-border': !flag}"
+    />
+  </div>
+
+  <p class="text-[#DB3F27] text-sm font-medium" *ngIf="!flag">
+    Incorrect password. Please try again
+  </p>
+  <button class="Appbutton" (click)="checkValidUser()">Submit</button>
+</div>

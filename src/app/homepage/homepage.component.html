@@ -1,0 +1,14 @@
+<div class="bg-white flex flex-col items-start gap-6 ml-[20%] my-[25%]">
+  <h1 class="text-[22px] font-semibold">Welcome</h1>
+  <div>
+    <p class="inputHeadings">Enter Email ID</p>
+    <input [(ngModel)]="email" placeholder="Enter your email" />
+  </div>
+  <p class="text-[#767676] font-semibold">(OR)</p>
+  <div>
+    <p class="inputHeadings">Enter Mobile No.</p>
+    <input [(ngModel)]="mobile" placeholder="91+" />
+  </div>
+
+  <button class="Appbutton" (click)="checkEmail()">Submit</button>
+</div>

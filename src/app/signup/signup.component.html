@@ -1,0 +1,101 @@
+<div class="ml-16">
+  <button
+    class="text-[20px] text-[#0069D1] flex gap-1 my-2"
+    *ngIf="!flag"
+    (click)="onBack()"
+  >
+    <span class="material-symbols-outlined"> reply </span>Go Back
+  </button>
+
+  <div class="mt-4">
+    <div class="min-w-[333px] max-w-[333px]">
+      <h2 class="text-[22px] font-semibold">Create Account</h2>
+      <div class="flex gap-1 mt-4">
+        <div class="signUpToplineBlue"></div>
+        <div [ngClass]="flag ? 'signUpToplineGray' : 'signUpToplineBlue'"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-start gap-6">
+    <div *ngIf="!flag" class="mt-6">
+      <div class="my-4">
+        <p class="inputHeadings">Enter Email ID</p>
+        <input
+          [(ngModel)]="emailOrPhone"
+          type="text"
+          placeholder="Loremipsum@gmail.com"
+        />
+      </div>
+
+      <div class="my-4">
+        <p class="inputHeadings">Enter Full name</p>
+        <input [(ngModel)]="password" type="password" placeholder="Full name" />
+      </div>
+
+      <div class="mt-2 mb-6">
+        <p class="inputHeadings">Create Password</p>
+        <input [(ngModel)]="name" type="text" placeholder="password" />
+      </div>
+
+      <button class="Appbutton mt-2" (click)="onContinue()">Next</button>
+    </div>
+
+    <div *ngIf="flag" class="mt-4">
+      <div>
+        <p class="inputHeadings">Organization-name</p>
+        <input
+          [(ngModel)]="organizationName"
+          type="text"
+          placeholder="Organization name"
+        />
+      </div>
+
+      <div>
+        <p class="inputHeadings">Organization-id</p>
+        <input
+          [(ngModel)]="organizationId"
+          type="text"
+          placeholder="Organization id"
+        />
+      </div>
+
+      <div>
+        <p class="inputHeadings">Designation</p>
+        <select class="designation" [(ngModel)]="designation">
+          <option value="Developer">Developer</option>
+          <option value="Manager">Manager</option>
+        </select>
+      </div>
+
+      <div>
+        <p class="inputHeadings">Birth-date</p>
+        <input [(ngModel)]="birthDate" type="date" />
+      </div>
+
+      <div class="flex gap-8">
+        <div>
+          <p class="inputHeadings">City</p>
+          <input
+            [(ngModel)]="city"
+            type="text"
+            class="w-[144px]"
+            placeholder="City"
+          />
+        </div>
+        <div>
+          <p class="inputHeadings">Pincode</p>
+          <input
+            [(ngModel)]="pincode"
+            type="number"
+            maxlength="6"
+            class="w-[144px]"
+            placeholder="Pincode"
+          />
+        </div>
+      </div>
+
+      <button class="Appbutton mt-4">Next</button>
+    </div>
+  </div>
+</div>

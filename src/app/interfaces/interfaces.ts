@@ -9,11 +9,12 @@ export interface User {
     name: string;
   }
   
-  export interface Step2Fields {
-    organization: string;
+  export interface UserDetail {
+    organizationName: string;
     designation: string;
     birthDate: Date;
     city: string;
     pincode: string;
   }
+  
   
