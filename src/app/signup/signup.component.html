@@ -7,7 +7,7 @@
     <span class="material-symbols-outlined"> reply </span>Go Back
   </button>
 
-  <div class="mt-4">
+  <div class="mt-4" [ngStyle]="{ 'margin-top': flag ? '50px' : '0' }">
     <div class="min-w-[333px] max-w-[333px]">
       <h2 class="text-[22px] font-semibold">Create Account</h2>
       <div class="flex gap-1 mt-4">
@@ -67,6 +67,7 @@
       <button class="Appbutton mt-2" (click)="onContinue()">Next</button>
     </div>
 
+    <!-- Page 2 of signup form  -->
     <div *ngIf="!flag" class="mt-4">
       <div>
         <p class="inputHeadings">Organization-name</p>
@@ -124,7 +125,9 @@
         </div>
       </div>
 
-      <button class="Appbutton mt-4">Next</button>
+      <p class="text-[#DB3F27] text-sm font-medium text-center pt-2" *ngIf="errorFlag">{{errorMessage}}</p>
+
+      <button class="Appbutton mt-4 mb-2" (click)="handleSubmit()">Next</button>
     </div>
   </div>
 </div>
