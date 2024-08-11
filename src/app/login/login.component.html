@@ -1,18 +1,38 @@
 <div class="bg-white flex flex-col items-start gap-6 ml-[20%] my-[25%]">
-  <h1 class="text-[22px] font-semibold">Welcome</h1>
+  <h1 class="text-[22px] font-semibold">Welcome {{validUser}}</h1>
   <div>
     <p class="inputHeadings">Enter Email ID</p>
-    <input type="email" [(ngModel)]="email" placeholder="Enter your email" />
+    <input class="inputType" type="email" [(ngModel)]="email" placeholder="Enter your email" />
   </div>
 
   <div>
     <p class="inputHeadings">Enter Password</p>
-    <input
-      type="password"
-      [(ngModel)]="password"
-      placeholder="Password"
-      [ngClass]="{'red-border': !flag}"
-    />
+
+    <div class="inputBox flex items-center justify-between outline-none border-none">
+      <input
+      class="bg-[#E4ECEE] w-3/4"
+        [type]="passwordFieldType"
+        [(ngModel)]="password"
+        placeholder="Password"
+        [ngClass]="{'red-border': !flag}"
+      />
+
+      <span
+        *ngIf="passwordFieldType === 'text'"
+        class="material-symbols-outlined mr-2 text-[#0069D1]"
+        (click)="togglePasswordVisibility()"
+      >
+        visibility
+      </span>
+
+      <span
+        *ngIf="passwordFieldType === 'password'"
+        class="material-symbols-outlined mr-2 text-[#0069D1]"
+        (click)="togglePasswordVisibility()"
+      >
+        visibility_off
+      </span>
+    </div>
   </div>
 
   <p class="text-[#DB3F27] text-sm font-medium" *ngIf="!flag">

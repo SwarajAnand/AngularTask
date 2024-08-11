@@ -22,6 +22,7 @@
       <div class="my-4">
         <p class="inputHeadings">Enter Email ID</p>
         <input
+        class="inputBox"
           [(ngModel)]="emailOrPhone"
           type="text"
           placeholder="Loremipsum@gmail.com"
@@ -30,12 +31,37 @@
 
       <div class="my-4">
         <p class="inputHeadings">Enter Full name</p>
-        <input [(ngModel)]="password" type="password" placeholder="Full name" />
+        <input class="inputBox" [(ngModel)]="name" type="text" placeholder="Full name" />
       </div>
 
       <div class="mt-2 mb-6">
         <p class="inputHeadings">Create Password</p>
-        <input [(ngModel)]="name" type="text" placeholder="password" />
+        <div class="inputBox flex items-center justify-between outline-none border-none">
+          <input
+          class="bg-[#E4ECEE] w-3/4"
+            [type]="passwordFieldType"
+            [(ngModel)]="password"
+            placeholder="Password"
+            [ngClass]="{'red-border': !flag}"
+          />
+    
+          <span
+            *ngIf="passwordFieldType === 'text'"
+            class="material-symbols-outlined mr-2 text-[#0069D1]"
+            (click)="togglePasswordVisibility()"
+          >
+            visibility
+          </span>
+    
+          <span
+            *ngIf="passwordFieldType === 'password'"
+            class="material-symbols-outlined mr-2 text-[#0069D1]"
+            (click)="togglePasswordVisibility()"
+          >
+            visibility_off
+          </span>
+        </div>
+        
       </div>
 
       <button class="Appbutton mt-2" (click)="onContinue()">Next</button>
@@ -45,6 +71,7 @@
       <div>
         <p class="inputHeadings">Organization-name</p>
         <input
+        class="inputBox"
           [(ngModel)]="organizationName"
           type="text"
           placeholder="Organization name"
@@ -54,6 +81,7 @@
       <div>
         <p class="inputHeadings">Organization-id</p>
         <input
+        class="inputBox"
           [(ngModel)]="organizationId"
           type="text"
           placeholder="Organization id"
@@ -70,7 +98,7 @@
 
       <div>
         <p class="inputHeadings">Birth-date</p>
-        <input [(ngModel)]="birthDate" type="date" />
+        <input class="inputBox" [(ngModel)]="birthDate" type="date" />
       </div>
 
       <div class="flex gap-8">
@@ -79,7 +107,7 @@
           <input
             [(ngModel)]="city"
             type="text"
-            class="w-[144px]"
+            class="inputBox max-w-[144px]"
             placeholder="City"
           />
         </div>
@@ -89,7 +117,7 @@
             [(ngModel)]="pincode"
             type="number"
             maxlength="6"
-            class="w-[144px]"
+            class="inputBox max-w-[144px]"
             placeholder="Pincode"
             (input)="validatePincode($event)"
           />

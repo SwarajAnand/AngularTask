@@ -1,20 +1,12 @@
-export interface User {
-    email: string;
-    password: string;
-    name?: string;
-  }
-  
-  export interface Organization {
-    id: string;
-    name: string;
-  }
-  
-  export interface UserDetail {
-    organizationName: string;
-    designation: string;
-    birthDate: Date;
-    city: string;
-    pincode: string;
-  }
-  
-  
+export interface UserDetail {
+  email: string;
+  password: string;
+  name?: string;
+  organizationName?: string;
+  designationId?: string;
+  birthDate?: Date;
+  designation?: string;
+  city?: string;
+  pincode?: string;
+  mobile?: string;
+}

@@ -22,6 +22,7 @@ export class SignupComponent {
   birthDate: string = '';
   city: string = '';
   private _pincode: any = '';
+  passwordFieldType: string = 'password';
 
   get pincode(): string {
     return this._pincode;
@@ -33,6 +34,10 @@ export class SignupComponent {
 
   onBack() {
     this.flag = true;
+  }
+
+  togglePasswordVisibility() {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 
   set pincode(value: string) {
