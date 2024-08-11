@@ -18,7 +18,7 @@
   </div>
 
   <div class="flex flex-col items-start gap-6">
-    <div *ngIf="!flag" class="mt-6">
+    <div *ngIf="flag" class="mt-6">
       <div class="my-4">
         <p class="inputHeadings">Enter Email ID</p>
         <input
@@ -41,7 +41,7 @@
       <button class="Appbutton mt-2" (click)="onContinue()">Next</button>
     </div>
 
-    <div *ngIf="flag" class="mt-4">
+    <div *ngIf="!flag" class="mt-4">
       <div>
         <p class="inputHeadings">Organization-name</p>
         <input
@@ -91,6 +91,7 @@
             maxlength="6"
             class="w-[144px]"
             placeholder="Pincode"
+            (input)="validatePincode($event)"
           />
         </div>
       </div>

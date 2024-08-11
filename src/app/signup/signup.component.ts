@@ -21,7 +21,7 @@ export class SignupComponent {
   designation: string = 'Developer';
   birthDate: string = '';
   city: string = '';
-  private _pincode: string = '';
+  private _pincode: any = '';
 
   get pincode(): string {
     return this._pincode;
@@ -36,13 +36,22 @@ export class SignupComponent {
   }
 
   set pincode(value: string) {
-
-
-    // Limit to 6 digits
-    this._pincode = value
-    // this._pincode = 
-    console.log(this._pincode.length())
+    // Only allow numeric characters and limit to 6 digits
+    this._pincode = value;
+    // console.log('Pincode length:', this._pincode.length);
   }
+
+
+  validatePincode(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.value.length > 6) {
+      input.value = input.value.slice(0, 6);
+    }
+    this._pincode = input.value; // Trigger the setter
+
+    // console.log(this._pincode)
+  }
+
 }
 
 
