@@ -1,4 +1,4 @@
-<div class="ml-16">
+<div *ngIf="!validSubmit" class="ml-16">
   <button
     class="text-[20px] text-[#0069D1] flex gap-1 my-2"
     *ngIf="!flag"
@@ -22,7 +22,7 @@
       <div class="my-4">
         <p class="inputHeadings">Enter Email ID</p>
         <input
-        class="inputBox"
+          class="inputBox"
           [(ngModel)]="emailOrPhone"
           type="text"
           placeholder="Loremipsum@gmail.com"
@@ -31,20 +31,27 @@
 
       <div class="my-4">
         <p class="inputHeadings">Enter Full name</p>
-        <input class="inputBox" [(ngModel)]="name" type="text" placeholder="Full name" />
+        <input
+          class="inputBox"
+          [(ngModel)]="name"
+          type="text"
+          placeholder="Full name"
+        />
       </div>
 
       <div class="mt-2 mb-6">
         <p class="inputHeadings">Create Password</p>
-        <div class="inputBox flex items-center justify-between outline-none border-none">
+        <div
+          class="inputBox flex items-center justify-between outline-none border-none"
+        >
           <input
-          class="bg-[#E4ECEE] w-3/4"
+            class="bg-[#E4ECEE] w-3/4"
             [type]="passwordFieldType"
             [(ngModel)]="password"
             placeholder="Password"
             [ngClass]="{'red-border': !flag}"
           />
-    
+
           <span
             *ngIf="passwordFieldType === 'text'"
             class="material-symbols-outlined mr-2 text-[#0069D1]"
@@ -52,7 +59,7 @@
           >
             visibility
           </span>
-    
+
           <span
             *ngIf="passwordFieldType === 'password'"
             class="material-symbols-outlined mr-2 text-[#0069D1]"
@@ -61,7 +68,6 @@
             visibility_off
           </span>
         </div>
-        
       </div>
 
       <button class="Appbutton mt-2" (click)="onContinue()">Next</button>
@@ -72,7 +78,7 @@
       <div>
         <p class="inputHeadings">Organization-name</p>
         <input
-        class="inputBox"
+          class="inputBox"
           [(ngModel)]="organizationName"
           type="text"
           placeholder="Organization name"
@@ -82,7 +88,7 @@
       <div>
         <p class="inputHeadings">Organization-id</p>
         <input
-        class="inputBox"
+          class="inputBox"
           [(ngModel)]="organizationId"
           type="text"
           placeholder="Organization id"
@@ -102,7 +108,7 @@
         <input class="inputBox" [(ngModel)]="birthDate" type="date" />
       </div>
 
-      <div class="flex gap-8">
+      <div class="flex gap-8 max-w-[333px] justify-between">
         <div>
           <p class="inputHeadings">City</p>
           <input
@@ -125,9 +131,25 @@
         </div>
       </div>
 
-      <p class="text-[#DB3F27] text-sm font-medium text-center pt-2" *ngIf="errorFlag">{{errorMessage}}</p>
+      <p
+        class="text-[#DB3F27] text-sm font-medium text-center pt-2"
+        *ngIf="errorFlag"
+      >
+        {{errorMessage}}
+      </p>
 
       <button class="Appbutton mt-4 mb-2" (click)="handleSubmit()">Next</button>
     </div>
   </div>
+</div>
+
+<!-- create user page -> will try with seperate comp with props -->
+
+<div *ngIf="validSubmit" class="flex flex-col items-center">
+  <img class="my-14" src="../../assets/greenTick.svg" alt="tickImage" />
+  <p class="font-bold text-[28px]">Welcome to Solvei8!</p>
+
+  <p class="font-normal text-[20px] text-center mt-6 text-[#737E8A]">
+    Redirecting you to the Login screen. This might take a few seconds...
+  </p>
 </div>

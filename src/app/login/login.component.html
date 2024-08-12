@@ -1,20 +1,30 @@
-<div class="bg-white flex flex-col items-start gap-6 ml-[20%] my-[25%]">
+<div
+  *ngIf="!validSubmit"
+  class="bg-white flex flex-col items-start gap-6 ml-[20%] my-[25%]"
+>
   <h1 class="text-[22px] font-semibold">Welcome {{validUser}}</h1>
   <div>
     <p class="inputHeadings">Enter Email ID</p>
-    <input class="inputType" type="email" [(ngModel)]="email" placeholder="Enter your email" />
+    <input
+      class="inputType"
+      type="email"
+      [(ngModel)]="email"
+      placeholder="Enter your email"
+    />
   </div>
 
   <div>
     <p class="inputHeadings">Enter Password</p>
 
-    <div class="inputBox flex items-center justify-between outline-none border-none">
+    <div
+      [ngClass]="{'red-border': !flag}"
+      class="inputBox flex items-center justify-between outline-none border-none"
+    >
       <input
-      class="bg-[#E4ECEE] w-3/4"
+        class="bg-[#E4ECEE] w-3/4"
         [type]="passwordFieldType"
         [(ngModel)]="password"
         placeholder="Password"
-        [ngClass]="{'red-border': !flag}"
       />
 
       <span
@@ -39,4 +49,13 @@
     Incorrect password. Please try again
   </p>
   <button class="Appbutton" (click)="checkValidUser()">Submit</button>
+</div>
+
+<div *ngIf="validSubmit" class="flex flex-col items-center">
+  <img class="my-14" src="../../assets/greenTick.svg" alt="tickImage" />
+  <p class="font-bold text-[28px]">Welcome to Solvei8!</p>
+
+  <p class="font-normal text-[20px] text-center mt-6 text-[#737E8A]">
+    Redirecting you to the Login screen. This might take a few seconds...
+  </p>
 </div>

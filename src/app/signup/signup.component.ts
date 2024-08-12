@@ -1,7 +1,15 @@
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { organizationIds, organizationNames } from "../utils/common";
+import {
+  existingEmailsOrMobile,
+  organizationIds,
+  organizationNames,
+} from "../utils/common";
+import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { AppState } from "../store/globalUsers.state";
+import { loginUser } from "../store/user.action";
 
 @Component({
   selector: "app-signup",
@@ -13,6 +21,7 @@ import { organizationIds, organizationNames } from "../utils/common";
 export class SignupComponent {
   flag: boolean = true;
   errorFlag: boolean = false;
+  validSubmit: boolean = false;
 
   emailOrPhone: string = "";
   name: string = "";
@@ -31,6 +40,8 @@ export class SignupComponent {
   get pincode(): string {
     return this._pincode;
   }
+
+  constructor(private router: Router, private store: Store<AppState>) {}
 
   onContinue() {
     this.flag = false;
@@ -105,5 +116,28 @@ export class SignupComponent {
     if (!validOrganization) {
       return;
     }
+
+    let createUser = {
+      email: this.emailOrPhone,
+      password: this.password,
+      name: this.name,
+      organizationName: this.organizationName,
+      designationId: this.organizationId,
+      birthDate: new Date(this.birthDate),
+      designation: this.designation,
+      city: this.city,
+      pincode: this.pincode,
+      mobile: this.emailOrPhone,
+    };
+
+    this.store.dispatch(loginUser({ user: createUser }));
+    existingEmailsOrMobile.push(createUser);
+
+    this.validSubmit = true;
+    // if validSubmit === true then redirect to login state that user is created successfully and save the current login user to global store state
+
+    setTimeout(() => {
+      this.router.navigate(["/login"]);
+    }, 1000);
   }
 }
