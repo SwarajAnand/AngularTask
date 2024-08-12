@@ -1,4 +1,6 @@
-# Angular Signup and Login App
+# Angular Signup and Login App by SWARAJ ANAND
+
+[Hosted link 🔗](https://angular-task-phi.vercel.app/)
 
 This is a simple Angular application that allows users to sign up and log in. The app uses NgRx for state management and mock data for organization names and IDs.
 
@@ -12,7 +14,7 @@ This is a simple Angular application that allows users to sign up and log in. Th
 - [Mock Data](#mock-data)
 - [Extra](#extra)
 
-## Features
+## Features 
 
 - **Signup**: Users can register with their email or mobile number, along with other details like name, organization, designation, etc.
 - **Login**: Registered users can log in using their credentials.
@@ -20,7 +22,7 @@ This is a simple Angular application that allows users to sign up and log in. Th
 - **Form Validation**: Real-time validation for all forms with error handling.
 - **Mock Data**: Uses predefined mock data for organization names and IDs.
 
-## Installation
+## Installation 🔩
 
 1. **Clone the repository**:
 
@@ -39,14 +41,18 @@ As for Signup create a new user with the below credentials and as this project d
 
 Demo users ->
 
-    email: "john.doe@example.com",
-    password: "password123",
 
-    email: "jane.smith@example.com",
-    password: "securePass456",
+    User 1:
+        Email: john.doe@example.com
+        Password: password123
+        
+    User 2:
+        Email: jane.smith@example.com
+        Password: securePass456
 
-    email: "robert.brown@example.com",
-    password: "myPassword789",
+    User 3:
+        Email: robert.brown@example.com
+        Password: myPassword789
 
 as you can login with these credentials and see the flow
 
@@ -54,27 +60,26 @@ as you can login with these credentials and see the flow
 
 ### As for now as this project use mock data you can only create new users with this organizationNames and organizationIds :
 
-Mock organizationNames -> List are [  
-  "Tech Corp",  
-  "Innovate Ltd",  
-  "Creative Solutions",  
-  "Marketing Gurus",  
-  "Finance Experts",  
-];
+    Organization Names -> :
+    1. Tech Corp
+    2. Innovate Ltd
+    3. Creative Solutions
+    4. Marketing Gurus
+    5. Finance Experts
 
-Mock organizationIds -> List are = [  
-  "D001",  
-  "D002",  
-  "D003",  
-  "D004",  
-  "D005",  
-];
+    Organization IDs -> :
+    1. D001
+    2. D002
+    3. D003
+    4. D004
+    5. D005
 
 ## Extra
 
-I added that stuff to look more better
+To enhance user experience, the following features have been added:
 
-1. Added a password toggler for user to see password while writing
-2. Added a setTimeout in signup page as for now that it take 1 second to redirect to the login page as we will store it in DB so it will take some time to make it feel like that 
-3. When on homepage if we find a valid user and we are redirecting to login page so the name is also visible on that page like
---->>> Welcome, Swaraj 
+1. <b>Password Toggler</b>: Users can toggle the visibility of their password while typing to ensure accuracy.
+
+2. <b>Signup Delay</b>: A setTimeout of 1 **Second** is added on the signup page to simulate the time taken to store user data in a database, making the transition to the login page smoother.   
+
+3. <b>Personalized Welcome</b>: When a valid user is detected on the homepage and redirected to the login page, their name is displayed, e.g., **"Welcome, Swaraj"** to provide a personalized experience.
